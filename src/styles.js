@@ -1,4 +1,4 @@
-import { styleSheet, style, classes } from './react-style-elements/style';
+import { styleSheet, style } from './react-style-elements/style';
 import * as Border from './react-style-elements/style/border';
 import * as Color from './react-style-elements/style/color';
 import * as Font from './react-style-elements/style/font';
@@ -15,41 +15,26 @@ const contentTypeface = Font.typeface([
   Font.font('sans-serif'),
 ]);
 
-export const Styles = classes([
-  'app',
+export default styleSheet([
+  style('app', [contentTypeface, Font.size(16)]),
 
   // page
-  'navBar',
-  'navBarBrand',
-  'footer',
-  'footerLink',
-  'footerAttribution',
-
-  // home
-  'bannerTitle',
-  'bannerText',
-]);
-
-export default styleSheet(Styles, [
-  style(Styles.app, [contentTypeface, Font.size(16)]),
-
-  // page
-  style(Styles.navBar, [Border.rounded(4)]),
-  style(Styles.navBarBrand, [
+  style('navBar', [Border.rounded(4)]),
+  style('navBarBrand', [
     brandTypeface,
     Font.size(fontScale(1.5)),
     Color.text(brandColor),
   ]),
-  style(Styles.footer, [Color.background(Color.rgb(243, 243, 243))]),
-  style(Styles.footerLink, [Color.text(brandColor)]),
-  style(Styles.footerAttribution, [Color.text(Color.rgb(187, 187, 187))]),
+  style('footer', [Color.background(Color.rgb(243, 243, 243))]),
+  style('footerLink', [Color.text(brandColor)]),
+  style('footerAttribution', [Color.text(Color.rgb(187, 187, 187))]),
 
   // home
-  style(Styles.bannerTitle, [
+  style('bannerTitle', [
     brandTypeface,
     Font.size(fontScale(3.5)),
     Font.center(),
     Font.weight(700),
   ]),
-  style(Styles.bannerText, [Font.size(fontScale(1.5)), Font.center()]),
+  style('bannerText', [Font.size(fontScale(1.5)), Font.center()]),
 ]);

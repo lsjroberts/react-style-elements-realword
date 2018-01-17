@@ -19,7 +19,7 @@ import {
   spacing,
 } from '../react-style-elements/elements/attributes';
 
-import { Styles } from '../styles';
+import styles from '../styles';
 import { spacingScale } from '../scales';
 
 export default function page(content) {
@@ -35,7 +35,7 @@ export default function page(content) {
 
 function viewHeader() {
   return navigation(
-    Styles.navBar,
+    styles.navBar,
     [paddingXY(spacingScale(1), spacingScale(0.5))],
     el(
       null,
@@ -44,7 +44,7 @@ function viewHeader() {
         null,
         [],
         [
-          link(Styles.navBarBrand, [href('/')], 'conduit'),
+          link(styles.navBarBrand, [href('/')], 'conduit'),
           // ul(
           //   Styles.NavBarNav,
           //   [],
@@ -62,15 +62,15 @@ function viewHeader() {
 
 function viewFooter() {
   return footer(
-    Styles.footer,
+    styles.footer,
     [paddingXY(0, spacingScale(1))],
     row(
       null,
       [center(), maxWidth(1140), spacing(10)],
       [
-        link(Styles.footerLink, [href('/')], 'conduit'),
+        link(styles.footerLink, [href('/')], 'conduit'),
         row(
-          Styles.footerAttribution,
+          styles.footerAttribution,
           [],
           [
             'An interactive learning project from ',

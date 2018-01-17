@@ -1,6 +1,6 @@
 import { column, h1, paragraph } from '../react-style-elements/elements';
 
-import { Styles } from '../styles';
+import styles from '../styles';
 import page from '../views/page';
 
 export function view() {
@@ -12,8 +12,8 @@ function viewBanner() {
     null,
     [],
     [
-      h1(Styles.bannerTitle, [], 'conduit'),
-      paragraph(Styles.bannerText, [], 'A place to share your knowledge.'),
+      h1(styles.bannerTitle, [], 'conduit'),
+      paragraph(styles.bannerText, [], 'A place to share your knowledge.'),
     ],
   );
 }
