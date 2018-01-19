@@ -1,7 +1,5 @@
-export function spacingScale(index) {
-  return index * 16;
-}
+import { roundedModular } from './react-style-elements/style/scale';
 
-export function fontScale(index) {
-  return index * 16;
-}
+export const spacingScale = roundedModular(16, 2);
+export const smallSpacingScale = roundedModular(16, 1.5);
+export const fontScale = roundedModular(16, 1.5);

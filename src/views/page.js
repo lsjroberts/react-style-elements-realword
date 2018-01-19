@@ -2,19 +2,16 @@ import {
   el,
   column,
   row,
-  wrappedRow,
   navigation,
   footer,
-  ul,
-  li,
   link,
 } from '../react-style-elements/elements';
+import * as Input from '../react-style-elements/elements/input';
 import {
+  alignRight,
   center,
   href,
   maxWidth,
-  paddingTop,
-  paddingBottom,
   paddingXY,
   spacing,
 } from '../react-style-elements/elements/attributes';
@@ -22,13 +19,13 @@ import {
 import styles from '../styles';
 import { spacingScale } from '../scales';
 
-export default function page(content) {
+export default function page({ content, dispatch }) {
   return column(
     null,
     [],
     [
       viewHeader(),
-      column(null, [spacing(spacingScale(3))], [content, viewFooter()]),
+      column(null, [spacing(spacingScale(3))], [content, viewFooter(dispatch)]),
     ],
   );
 }
@@ -36,7 +33,7 @@ export default function page(content) {
 function viewHeader() {
   return navigation(
     styles.navBar,
-    [paddingXY(spacingScale(1), spacingScale(0.5))],
+    [paddingXY(spacingScale(1), spacingScale(-1))],
     el(
       null,
       [center(), maxWidth(1140)],
@@ -60,7 +57,7 @@ function viewHeader() {
   );
 }
 
-function viewFooter() {
+function viewFooter(dispatch) {
   return footer(
     styles.footer,
     [paddingXY(0, spacingScale(1))],
@@ -77,6 +74,17 @@ function viewFooter() {
             link(null, [href('https://thinkster.io')], 'Thinkster'),
             '. Code & design licensed under MIT.',
           ],
+        ),
+        Input.button(
+          null,
+          [],
+          {
+            onPress: () =>
+              dispatch({
+                type: 'TOGGLE_THEME',
+              }),
+          },
+          'Toggle theme',
         ),
       ],
     ),
